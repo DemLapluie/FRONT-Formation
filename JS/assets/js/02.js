@@ -1,4 +1,3 @@
-
 // -- Déclarer un Tableau Indexé (avec des indices numériques).
 
 var monTableau = [];
@@ -52,10 +51,10 @@ var AnnuaireDesApprenants = [
 
 console.log(AnnuaireDesApprenants)
 
-AnnuaireDesApprenants[0][0]
+consoleAnnuaireDesApprenants[0][0]
 AnnuaireDesApprenants [0][0]
-AnnuaireDesApprenants [3].prenom.nom.tel,
-AnnuaireDesApprenants [4].prenom.nom.tel,;
+AnnuaireDesApprenants [3].prenom.nom.tel;
+AnnuaireDesApprenants [4].prenom.nom.tel;
 
 /** EXEMPLE */
 
@@ -167,7 +166,4 @@ console.log(monDernierElement)
  * La fonction splice() vous permet de faire sortir un ou plusieurs éléments.
  */
 
- document.write(
-     DebutDePhrase + DateDuJour.getDate()/ '/' + (DateDuJour.getMonth() + 1) + '/' + DateDuJour.getFullYear()
-    )
 
