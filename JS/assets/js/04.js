@@ -24,7 +24,7 @@ console.log('La Multiplication de nb1 et nb2 = ' + resultat)
 resultat = nb1 / nb2;
 console.log('La Division de nb1 et nb2 = ' + resultat)
 
-//-- Le Mudulo de nb1 et nb2 avec l'opératuer "/"
+//-- Le Mudulo de nb1 et nb2 avec l'opératuer "%"
 nb1 = 11
 resultat = nb1 % nb2;
 console.log('Le Modulo de nb1 et nb2 = ' + resultat)
