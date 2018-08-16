@@ -1,0 +1,60 @@
+<div class="container">
+  <header class="mb-4">
+   <nav class="navbar navbar-dark bg-dark">
+    <div class="navbar-header">
+      <a href="/" class="navbar-brand">
+
+        <!--
+         Avec l'expression {{ }} j'affiche le contenu da la variable dans l'app
+         -->
+        CONTACT
+      </a>
+
+    </div>
+
+   </nav>
+  </header>
+
+  <div class="row">
+    <div class="col-sm-4">
+      <ul class="list-group">
+        <!--<a class="list-group-item list-group-item-action"-->
+           <!--href="javascript:void(0)">-->
+          <!--Demmy-->
+        <!--</a>-->
+        <!--<a class="list-group-item list-group-item-action"-->
+           <!--href="javascript:void(0)">-->
+          <!--Hugo-->
+        <!--</a>-->
+        <!--<a class="list-group-item list-group-item-action"-->
+           <!--href="javascript:void(0)">-->
+          <!--Sylvain-->
+        <!--</a>-->
+        <a *ngFor="let contact of mesContacts"
+           (click)="displayContact(contact)"
+           [class.active]="contact === contactActif"
+        class="list-group-item list-group-item-action"
+        href="javascript:void(0)">
+        {{ contact.name }}
+        </a>
+      </ul>
+      <!--
+      Lorsque l'évènement unContactEstCree sera émit (cf TS de component Ajouter), la fonction ajouterContactDansListe() sera déclenchée.
+      Elle prendra en paramètre $event, qui contient les données de notre évènement unContactEstCree.
+      A savoir, le nouveauContact.
+      -->
+      <app-ajouter (unContactEstCree)="ajouterContactDansListe($event)"></app-ajouter>
+    </div>
+    <div class="col-sm-8">
+    <app-profil [contact]="contactActif"></app-profil>
+    </div>
+  </div>
+  <pre>
+    <!-- {{ mesContacts | json }} -->
+  </pre>
+  <footer class="text-center">
+    Copyright &copy;2018 -Paris IV - 3
+  </footer>
+
+
+</div>

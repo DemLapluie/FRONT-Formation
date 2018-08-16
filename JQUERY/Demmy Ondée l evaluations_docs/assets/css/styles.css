@@ -1,0 +1,80 @@
+
+.row{
+    margin:0px 0px
+}
+.blue{
+    background-color:  #061339;
+
+}
+.logo{
+    font-family: 'Merienda', cursive;
+    color: white;
+    margin: 0px;
+}
+
+.block1{
+    height:180px;
+    background-image: url(../img/background.jpg);
+    background-repeat: repeat;
+    background-color:#B9CDFF
+    
+}
+h1.titre{
+    font-family: 'Merienda', cursive;
+    color:#FFF;
+    text-align:center;
+    margin-top: 62px;
+    text-shadow: 2px 2px 2px black;
+}
+
+.block2{
+    margin: 20px
+}
+
+.formulaire{
+    background-color: #FFF;
+    margin: 10px 0px 10px 0px;
+}
+ input{
+     height:200px;
+ }
+
+.titres{
+    color:#2F4073;
+    font-family: 'Merienda', cursive;
+    text-align: center
+}
+.block3{
+    background-color: rgb(224, 222, 222);
+    height: auto;
+    margin:0px 0px
+}
+
+.description{
+    padding: 107px 0px 10px 0px;
+    text-align:left;
+}
+
+p{
+    margin-top: 20px;
+}
+
+.chat{
+background-repeat: no-repeat;
+background-color: #7885A5;
+width:100%
+}
+.chat:hover {
+    background-color: #061339;
+}
+
+footer{
+    height:36px;
+    color:white;
+}
+
+
+/* Modification exceptionnelle des marges */
+.suppr{
+    margin: 0px 0px 0px 15px;
+}

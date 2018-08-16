@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <style>
+        .contact{
+            padding: 40px;
+            margin: 40px auto ;
+            width: 800px;
+            background: rgb(240, 234, 234);
+            border-radius: 10px
+        }
+    </style>
+    <title>Validation de Formulaire</title>
+</head>
+<body>
+    <main class="contact">
+        <header><h1><em>Contact</em> <hr></h1></header>
+        <form class="form-horizontal needs-validation col4 novalidate">
+            <div class="form-group row4">
+                <label class ="col3" for="exampleInputEmail1">Nom : </label>
+                <input class ="form-control col2" type="text" id="FamilyName" placeholder="Votre Nom">
+                <div class="invalid-feedback">
+                        Vous devez saisir votre nom.
+                </div>
+            </div>
+            <div class="form-group row4">
+                <label class ="col3" for="exampleInputEmail1">Prénom : </label>
+                <input class ="form-control col2" type="text" id="FirstName" placeholder="Votre Prénom">
+                <div class="invalid-feedback">
+                        Vous devez saisir votre nom.
+                </div>
+            </div>
+            <div class="form-group row4">
+                <label class ="col3" for="exampleInputPassword1">Email : </label>
+                <input class ="form-control col2" type="email" id="email" placeholder="votre@email.fr">
+                <div class="invalid-feedback">
+                        Vous devez saisir votre nom.
+                </div>
+            </div>
+            <div class="form-group row4">
+                <label class ="col3" for="exampleInputPassword1">Tél. :</label>
+                <input class ="form-control col2" type="tel" id="tel" placeholder="Votre Téléphone">
+                <div class="invalid-feedback">
+                        Vous devez saisir votre nom.
+                </div>
+            </div>      
+        
+            <button type="submit" class="btn btn-primary">Valider</button>
+        </form>
+    </main>
+
+
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    
+    <script>
+        /* -------------------------------------------------
+        |             ~~~   LA CONSIGNE     ~~~            |
+        |                                                  |
+        | Créez un Formulaire HTML Bootstrap avec les      |
+        | champs suivants :                                |
+        |                                                  |
+        |   1. Nom, Prénom, Email, Tel                     |
+        |   2. Réaliser la validation JS du Formulaire     |
+        |                                                  |
+        ------------------------------------------------- */
+        // (function() {
+        // 'use strict';
+        // window.addEventListener('load', function() {
+        //     // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        //     var forms = document.getElementsByClassName('needs-validation');
+        //     // Loop over them and prevent submission
+        //     var validation = Array.prototype.filter.call(forms, function(form) {
+        //     form.addEventListener('submit', function(event) {
+        //         if (form.checkValidity() === false) {
+        //         event.preventDefault();
+        //         event.stopPropagation();
+        //         }
+        //         form.classList.add('was-validated');
+        //     }, false);
+        //     });
+        // }, false);
+        // })();
+
+        function validateEmail(email) {
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        var validateTel = tel => {
+                var telReg = new RegExp("(0|\\+33|0033)[1-9][0-9]{8}");
+                var valid = telReg.test(tel);
+        }
+
+        $(function() {
+
+            $('.contact').submit(function(event){
+                event.preventDefault();
+
+                $('.is-invalid').removeClass('is-invalid')
+
+                let nom = $('#FamilyName');
+                let prenom = $('#FirstName');
+                let email = $('#email');
+                let tel = $('#tel');
+
+                //  Validation du Nom
+                if(nom.val().length === 0){
+                nom.addClass('is-invalid');
+                // $(`
+                //     <div class="invalid-feedback">
+                //         Vous devez saisir votre nom.
+                //     </div>
+                // `).appendTo(nom.parent());
+                };
+
+                // Validation du Prénom
+                if(prenom.val().length === 0) {
+                    prenom.addClass('is-invalid')
+                };            
+
+                // Validation du Email en prenan en compte la regex
+
+                if(!validateEmail(email.val())){
+                    email.addClass('is-invalid')
+                };
+
+                // Validation du téléphone
+
+                if(!validateTel(tel.val())){
+                    tel.addClass('is-invalid')
+                }
+                
+                if( $(this).find('.is-invalid').length === 0 ) {
+
+                $(this).replaceWith(`
+                    <div class="alert alert-success" role="alert">
+                        Votre contact à bien été transmis !
+                        Nous vous répondrons dans les meilleurs délais.
+                    </div>
+                `);
+
+                } else {
+
+                $(this).prepend(`
+                    <div class="alert alert-danger" role="alert">
+                        Nous n'avons pas été en mesure de valider votre contact. 
+                        Vérifiez vos informations.
+                    </div>
+                `);
+                }
+            });
+});  
+
+// -- Dans le cas d'une boucle de vérification
+// let ChampsAVerifier = $('#contact input:not([type=submit])');
+// console.log(ChampsAVerifier);
+
+// for(let i = 0 ; i < ChampsAVerifier.length ; i++) {
+//     if( $(ChampsAVerifier).eq(i).val().length === 0 ) {
+//         ...
+//     }
+// }
+
+    </script>
+</body>
+
+</html>
